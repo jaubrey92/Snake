@@ -1,0 +1,68 @@
+body {
+  background-color: #DAE8FC;
+  height: 100vh
+}
+
+section {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-family: 'Sigmar', cursive;
+}
+
+h1 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  justify-self: center;
+  font-size: 8vmin;
+  margin: 0;
+}
+
+ #score {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  justify-self: center;
+ }
+
+ #highscore {
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 1;
+  justify-self: center;
+ }
+
+
+main {
+  margin: 0 auto;
+  height: 70vmin;
+  width: 70vmin;
+  display: grid;
+  background-color: black;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  font-family: 'Sigmar', cursive;
+}
+
+main > div {
+  background-color: black;
+}
+
+#c5r6, #c5r7, #c5r8 {
+  background-color: #32CD32;
+}
+
+#c3r3 {
+  background-color: red;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  height: 10vmin;
+  width: 20vmin;
+  border-radius: 50%;
+  margin: 1vmin;
+  font-family: 'Sigmar', cursive;
+}
