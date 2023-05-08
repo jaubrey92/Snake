@@ -12,12 +12,13 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <section>
+  <header>
     <h1>Snake</h1>
     <h2 id="score">Score:</h2>
     <h2 id="highscore">High Score:</h2>
-  </section>
+  </header>
   <main>
+  <section id="gameboard">
     <div id="b0"></div>
     <div id="b1"></div>
     <div id="b2"></div>
@@ -127,10 +128,16 @@
     <div id="b97"></div>
     <div id="b98"></div>
     <div id="b99"></div>
-    
-  </main>
+  </section>
+  <aside>
+    <button class="movement" id="up">Up</button>
+    <button class="movement" id="left">Left</button>
+    <button class="movement" id="right">Right</button>
+    <button class="movement" id="down">Down</button>
+  </aside>
+</main>
   <footer>
-    <button>Play again!</button>
+    <button id="restart">Play again!</button>
   </footer>
 </body>
 </html>

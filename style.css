@@ -3,7 +3,7 @@ body {
   height: 100vh
 }
 
-section {
+header {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -31,8 +31,7 @@ h1 {
  }
 
 
-main {
-  margin: 0 auto;
+section {
   height: 70vmin;
   width: 70vmin;
   display: grid;
@@ -42,7 +41,7 @@ main {
   font-family: 'Sigmar', cursive;
 }
 
-main > div {
+section > div {
   background-color: black;
 }
 
@@ -59,10 +58,30 @@ footer {
   justify-content: center;
 }
 
-button {
+#restart {
   height: 10vmin;
   width: 20vmin;
   border-radius: 50%;
   margin: 1vmin;
   font-family: 'Sigmar', cursive;
+}
+
+main {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.movement {
+  height: 5vmin;
+  width: 10vmin;
+  border-radius: 50%;
+  margin: 1vmin;
+  font-family: 'Sigmar', cursive;
+
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

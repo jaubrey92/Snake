@@ -20,11 +20,15 @@ let appleLocation // randomized b#
 let direction = 1
 let currentSnake = [13, 12, 11]
 /*----- cached elements -----*/
-const keyBoard = document.querySelector('.keyboard')
-let playAgain = document.querySelector('button')
+
+let playAgain = document.querySelector('#restart')
+let left = document.querySelector('#left')
+let right = document.querySelector('#right')
+let up = document.querySelector('#up')
+let down = document.querySelector('#down')
 // let snake = [...document.querySelectorAll('.snake')]
 let apple = document.querySelector('.apple')
-let boardBoxes = [...document.querySelectorAll('main > div')]
+let boardBoxes = [...document.querySelectorAll('section > div')]
 currentSnake.forEach((value) => {
   boardBoxes[value].classList.add('snake')
 })
@@ -36,7 +40,10 @@ currentSnake.forEach((value) => {
 
 /*----- event listeners -----*/
 // playAgain.addEventListener('click', init)
-playAgain.addEventListener('click', handleMove)
+left.addEventListener('click', handleLeft)
+right.addEventListener('click', handleRight)
+up.addEventListener('click', handleUp)
+down.addEventListener('click', handleDown)
 /*
 click event listener for button to start game
 click event listener for button to play again
@@ -48,8 +55,35 @@ keyboard event listeners to direct snake: only L, R, up, down buttons, return ou
 // moving the snake every half a second, value in front is changed from 0 to 1 and in back from 0 to 1
 const moveSnake = () => {}
 
-function handleMove(evt) {
-  console.log(evt)
+function handleRight(evt) {
+  let tail = currentSnake.pop()
+  boardBoxes[tail].classList.remove('snake')
+  let newHead = currentSnake[0] + 1
+  currentSnake.unshift(newHead)
+  currentSnake.forEach((value) => {
+    boardBoxes[value].classList.add('snake')
+  })
+}
+function handleUp(evt) {
+  let tail = currentSnake.pop()
+  boardBoxes[tail].classList.remove('snake')
+  let newHead = currentSnake[0] - 10
+  currentSnake.unshift(newHead)
+  currentSnake.forEach((value) => {
+    boardBoxes[value].classList.add('snake')
+  })
+}
+function handleDown(evt) {
+  let tail = currentSnake.pop()
+  boardBoxes[tail].classList.remove('snake')
+  let newHead = currentSnake[0] + 10
+  currentSnake.unshift(newHead)
+  currentSnake.forEach((value) => {
+    boardBoxes[value].classList.add('snake')
+  })
+}
+
+function handleLeft(evt) {
   /* if (evt.keyCode === 37) {
     return
     //direction = -1
@@ -62,7 +96,7 @@ function handleMove(evt) {
   } else if (evt.keyCode === 39) { */
   let tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
-  let newHead = currentSnake[0] + 1
+  let newHead = currentSnake[0] - 1
   currentSnake.unshift(newHead)
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.add('snake')
