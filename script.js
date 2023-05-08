@@ -12,7 +12,7 @@ const appleScore = {
 /*----- state variables -----*/
 
 //let board // an array of arrays of 0 or 1
-// let gameOver // game over = -1 if game over, 1 if game is on going
+let gameOver = false // game over = -1 if game over, 1 if game is on going
 let highScore // updated if score > high score
 //let score // updated after every apple eaten
 // snake value of 1 in board array of arrays indicates snake body layout
@@ -24,6 +24,7 @@ let tail
 /*----- cached elements -----*/
 let showScore = document.querySelector('span')
 let playAgain = document.querySelector('#restart')
+let footer = document.querySelector('footer')
 let left = document.querySelector('#left')
 let right = document.querySelector('#right')
 let up = document.querySelector('#up')
@@ -34,6 +35,7 @@ let boardBoxes = [...document.querySelectorAll('section > div')]
 currentSnake.forEach((value) => {
   boardBoxes[value].classList.add('snake')
 })
+footer.style.visibility = 'hidden'
 // Do I need a snake head and snake body of different values, different arrays so I can write functions that show where the snake goes and where to remove value
 //or in response to keypresses, the computer will know to start changing c or r values
 // start game button
@@ -66,6 +68,7 @@ function handleRight(evt) {
     boardBoxes[value].classList.add('snake')
   })
   eatApple()
+  checkGameOver()
 }
 function handleUp(evt) {
   tail = currentSnake.pop()
@@ -76,6 +79,7 @@ function handleUp(evt) {
     boardBoxes[value].classList.add('snake')
   })
   eatApple()
+  checkGameOver()
 }
 function handleDown(evt) {
   tail = currentSnake.pop()
@@ -86,6 +90,7 @@ function handleDown(evt) {
     boardBoxes[value].classList.add('snake')
   })
   eatApple()
+  checkGameOver()
 }
 
 function handleLeft(evt) {
@@ -114,6 +119,7 @@ function handleLeft(evt) {
     //down
   } else return */
   eatApple()
+  checkGameOver()
 }
 
 function eatApple() {
@@ -130,8 +136,49 @@ function eatApple() {
   })
 }
 
-function gameOver() {
-  currentSnake
+function checkGameOver() {
+  if (
+    currentSnake.includes(90) ||
+    currentSnake.includes(91) ||
+    currentSnake.includes(92) ||
+    currentSnake.includes(93) ||
+    currentSnake.includes(94) ||
+    currentSnake.includes(95) ||
+    currentSnake.includes(96) ||
+    currentSnake.includes(97) ||
+    currentSnake.includes(98) ||
+    currentSnake.includes(99) ||
+    currentSnake.includes(0) ||
+    currentSnake.includes(1) ||
+    currentSnake.includes(2) ||
+    currentSnake.includes(3) ||
+    currentSnake.includes(4) ||
+    currentSnake.includes(5) ||
+    currentSnake.includes(6) ||
+    currentSnake.includes(7) ||
+    currentSnake.includes(8) ||
+    currentSnake.includes(9) ||
+    currentSnake.includes(19) ||
+    currentSnake.includes(29) ||
+    currentSnake.includes(39) ||
+    currentSnake.includes(49) ||
+    currentSnake.includes(59) ||
+    currentSnake.includes(69) ||
+    currentSnake.includes(79) ||
+    currentSnake.includes(89) ||
+    currentSnake.includes(10) ||
+    currentSnake.includes(20) ||
+    currentSnake.includes(30) ||
+    currentSnake.includes(40) ||
+    currentSnake.includes(50) ||
+    currentSnake.includes(60) ||
+    currentSnake.includes(70) ||
+    currentSnake.includes(80)
+  ) {
+    footer.style.visibility = 'visible'
+  } else {
+    return
+  }
 }
 
 const init = () => {
@@ -174,7 +221,5 @@ check game over function, leads to game over screen and pay again button
 */
 
 // init()
-
-// footer.style.visibility = gameOver ? 'visible' : 'hidden'
 
 //credits: CSS flex and grid guides, connect four HW
