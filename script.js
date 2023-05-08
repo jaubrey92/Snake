@@ -22,6 +22,7 @@ let currentSnake = [13, 12, 11]
 let applePosition = 64
 let score = 0
 let tail
+let newHead
 let appleIndex
 let newApplePositionIndex
 /*----- cached elements -----*/
@@ -92,35 +93,35 @@ const moveSnake = () => {}
 function handleRight(evt) {
   tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
-  let newHead = currentSnake[0] + 1
+  newHead = currentSnake[0] + 1
   currentSnake.unshift(newHead)
+  checkGameOver()
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.add('snake')
   })
   eatApple()
-  checkGameOver()
 }
 function handleUp(evt) {
   tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
-  let newHead = currentSnake[0] - 10
+  newHead = currentSnake[0] - 10
   currentSnake.unshift(newHead)
+  checkGameOver()
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.add('snake')
   })
   eatApple()
-  checkGameOver()
 }
 function handleDown(evt) {
   tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
-  let newHead = currentSnake[0] + 10
+  newHead = currentSnake[0] + 10
   currentSnake.unshift(newHead)
+  checkGameOver()
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.add('snake')
   })
   eatApple()
-  checkGameOver()
 }
 
 function handleLeft(evt) {
@@ -136,8 +137,9 @@ function handleLeft(evt) {
   } else if (evt.keyCode === 39) { */
   tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
-  let newHead = currentSnake[0] - 1
+  newHead = currentSnake[0] - 1
   currentSnake.unshift(newHead)
+  checkGameOver()
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.add('snake')
   }) /*
@@ -149,7 +151,6 @@ function handleLeft(evt) {
     //down
   } else return */
   eatApple()
-  checkGameOver()
 }
 
 function eatApple() {
@@ -169,7 +170,10 @@ function eatApple() {
 function randomApple() {
   do {
     appleIndex = Math.floor(Math.random() * 100)
-  } while (boardBoxes[appleIndex].classList.contains('lose'))
+  } while (
+    boardBoxes[appleIndex].classList.contains('lose') ||
+    boardBoxes[appleIndex].classList.contains('lose')
+  )
   return appleIndex
 }
 
@@ -212,6 +216,8 @@ function checkGameOver() {
     currentSnake.includes(70) ||
     currentSnake.includes(80)
   ) {
+    footer.style.visibility = 'visible'
+  } else if (boardBoxes[newHead].classList.contains('snake')) {
     footer.style.visibility = 'visible'
   } else {
     return
