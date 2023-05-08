@@ -90,6 +90,6 @@ p {
   font-size: 5vmin;
 }
 
-#b0, #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b10, #b20, #b30, #b40, #b50, #b60, #b70, #b80, #b90, #b91, #b92, #b93, #b94, #b95, #b96, #b97, #b98, #b99, #b89, #b79, #b69, #b59, #b49, #b39, #b29, #b19 {
+.lose {
   background-color: #DAE8FC;
 }

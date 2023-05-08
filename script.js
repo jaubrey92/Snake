@@ -22,6 +22,7 @@ let currentSnake = [13, 12, 11]
 let applePosition = 64
 let score = 0
 let tail
+let appleIndex
 let newApplePositionIndex
 /*----- cached elements -----*/
 let showScore = document.querySelector('span')
@@ -157,12 +158,19 @@ function eatApple() {
       boardBoxes[value].classList.remove('apple')
       score = score + 10
       showScore.innerText = score
-      newApplePositionIndex = Math.floor(Math.random() * 100)
+      newApplePositionIndex = randomApple()
       boardBoxes[newApplePositionIndex].classList.add('apple')
       currentSnake.push(tail)
       boardBoxes[tail].classList.add('snake')
     } else return
   })
+}
+
+function randomApple() {
+  do {
+    appleIndex = Math.floor(Math.random() * 100)
+  } while (boardBoxes[appleIndex].classList.contains('lose'))
+  return appleIndex
 }
 
 function checkGameOver() {
