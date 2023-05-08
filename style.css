@@ -46,11 +46,11 @@ main > div {
   background-color: black;
 }
 
-#c5r6, #c5r7, #c5r8 {
+.snake {
   background-color: #32CD32;
 }
 
-#c3r3 {
+.apple {
   background-color: red;
 }
 

@@ -5,23 +5,29 @@ const COLOR = {
   apple: 'red'
 }
 const snakeSpeed = 2 // squares per second?
-const apple = {
+const appleScore = {
   score: 10
 }
 
 /*----- state variables -----*/
 
-let board // an array of arrays of 0 or 1
+//let board // an array of arrays of 0 or 1
 let gameOver // game over = -1 if game over, 1 if game is on going
 let highScore // updated if score > high score
 let score // updated after every apple eaten
-let snake // value of 1 in board array of arrays indicates snake body layout
-let appleLocation // randomized row and column index
-
+// snake value of 1 in board array of arrays indicates snake body layout
+let appleLocation // randomized b#
+let direction = 1
+let currentSnake = [13, 12, 11]
 /*----- cached elements -----*/
-
+const keyBoard = document.querySelector('.keyboard')
 let playAgain = document.querySelector('button')
-let snakeHead = document.getElementById('c2r2')
+// let snake = [...document.querySelectorAll('.snake')]
+let apple = document.querySelector('.apple')
+let boardBoxes = [...document.querySelectorAll('main > div')]
+currentSnake.forEach((value) => {
+  boardBoxes[value].classList.add('snake')
+})
 // Do I need a snake head and snake body of different values, different arrays so I can write functions that show where the snake goes and where to remove value
 //or in response to keypresses, the computer will know to start changing c or r values
 // start game button
@@ -29,8 +35,8 @@ let snakeHead = document.getElementById('c2r2')
 // head of the snake: to allow for listening to arrow buttons
 
 /*----- event listeners -----*/
-playAgain.addEventListener('click', init)
-snakeHead.addEventListener('keydown', handleMove)
+// playAgain.addEventListener('click', init)
+playAgain.addEventListener('click', handleMove)
 /*
 click event listener for button to start game
 click event listener for button to play again
@@ -40,22 +46,45 @@ keyboard event listeners to direct snake: only L, R, up, down buttons, return ou
 // for the snake direction, maybe it is set bsed on the alignment of the first two values
 // timed function (setInterval(movesnakefxn), 500ms) to move the snake every interval, i need a compass or direction setter the snaker is facing and that compass will direct the snake, clearInterval when game over
 // moving the snake every half a second, value in front is changed from 0 to 1 and in back from 0 to 1
-const handleMove = () => {}
+const moveSnake = () => {}
+
+function handleMove(evt) {
+  console.log(evt)
+  /* if (evt.keyCode === 37) {
+    return
+    //direction = -1
+    //setInterval()
+    // left
+  } else if (evt.keyCode === 38) {
+    return
+    // direction = -10
+    // up
+  } else if (evt.keyCode === 39) { */
+  let tail = currentSnake.pop()
+  boardBoxes[tail].classList.remove('snake')
+  let newHead = currentSnake[0] + 1
+  currentSnake.unshift(newHead)
+  currentSnake.forEach((value) => {
+    boardBoxes[value].classList.add('snake')
+  }) /*
+    // direction = 1
+    // right
+  } else if (evt.keyCode === 40) {
+    return
+    // direction = 10
+    //down
+  } else return */
+}
 
 const init = () => {
-  board = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  ]
+  /* board = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+  ] */
+  // let snake = [1, 1, 1]
   gameOver = 1
   score = 0
   const moveSnake = () => {
@@ -70,9 +99,14 @@ const render = () => {
   checkEndOfGame()
 }
 
-const renderBoard = () => {}
+const renderBoard = () => {
+  board.forEach((box, boxIdx) => {
+    boxId = `b${boxIdx}`
+    //if (box ===)
+  })
+}
 const renderScore = () => {}
-const checkEndOfGame = () => {}
+const checkEndOfGame = () => {} // value of 1 in idx number 0-9, 90-99, numbers ending in 9 or 0 then gameOver = -1
 
 /*initialize function: initialize board array of arrays, game over value = 1, score, randomized apple position, snake starting position
 event function in reponse to the user, calls render function
@@ -81,6 +115,6 @@ render score including high score if applicable
 check game over function, leads to game over screen and pay again button
 */
 
-init()
+// init()
 
 //credits: CSS flex and grid guides,
