@@ -55,14 +55,13 @@ section > div {
 
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 #restart {
   height: 10vmin;
   width: 20vmin;
   border-radius: 50%;
-  margin: 1vmin;
   font-family: 'Sigmar', cursive;
 }
 
@@ -84,4 +83,9 @@ aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+p {
+  font-family: 'Sigmar', cursive;
+  font-size: 5vmin;
 }

@@ -12,7 +12,7 @@ const appleScore = {
 /*----- state variables -----*/
 
 //let board // an array of arrays of 0 or 1
-let gameOver // game over = -1 if game over, 1 if game is on going
+// let gameOver // game over = -1 if game over, 1 if game is on going
 let highScore // updated if score > high score
 //let score // updated after every apple eaten
 // snake value of 1 in board array of arrays indicates snake body layout
@@ -20,6 +20,7 @@ let appleLocation // randomized b#
 let direction = 1
 let currentSnake = [13, 12, 11]
 let score = 0
+let tail
 /*----- cached elements -----*/
 let showScore = document.querySelector('span')
 let playAgain = document.querySelector('#restart')
@@ -57,7 +58,7 @@ keyboard event listeners to direct snake: only L, R, up, down buttons, return ou
 const moveSnake = () => {}
 
 function handleRight(evt) {
-  let tail = currentSnake.pop()
+  tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
   let newHead = currentSnake[0] + 1
   currentSnake.unshift(newHead)
@@ -67,7 +68,7 @@ function handleRight(evt) {
   eatApple()
 }
 function handleUp(evt) {
-  let tail = currentSnake.pop()
+  tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
   let newHead = currentSnake[0] - 10
   currentSnake.unshift(newHead)
@@ -77,7 +78,7 @@ function handleUp(evt) {
   eatApple()
 }
 function handleDown(evt) {
-  let tail = currentSnake.pop()
+  tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
   let newHead = currentSnake[0] + 10
   currentSnake.unshift(newHead)
@@ -98,7 +99,7 @@ function handleLeft(evt) {
     // direction = -10
     // up
   } else if (evt.keyCode === 39) { */
-  let tail = currentSnake.pop()
+  tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
   let newHead = currentSnake[0] - 1
   currentSnake.unshift(newHead)
@@ -123,8 +124,14 @@ function eatApple() {
       showScore.innerText = score
       let newApplePositionIndex = Math.floor(Math.random() * 100)
       boardBoxes[newApplePositionIndex].classList.add('apple')
+      currentSnake.push(tail)
+      boardBoxes[tail].classList.add('snake')
     } else return
   })
+}
+
+function gameOver() {
+  currentSnake
 }
 
 const init = () => {
@@ -168,4 +175,6 @@ check game over function, leads to game over screen and pay again button
 
 // init()
 
-//credits: CSS flex and grid guides,
+// footer.style.visibility = gameOver ? 'visible' : 'hidden'
+
+//credits: CSS flex and grid guides, connect four HW
