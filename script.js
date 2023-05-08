@@ -19,8 +19,10 @@ let highScore // updated if score > high score
 let appleLocation // randomized b#
 let direction = 1
 let currentSnake = [13, 12, 11]
+let applePosition = 64
 let score = 0
 let tail
+let newApplePositionIndex
 /*----- cached elements -----*/
 let showScore = document.querySelector('span')
 let playAgain = document.querySelector('#restart')
@@ -32,18 +34,22 @@ let down = document.querySelector('#down')
 // let snake = [...document.querySelectorAll('.snake')]
 let apple = document.querySelector('.apple')
 let boardBoxes = [...document.querySelectorAll('section > div')]
-currentSnake.forEach((value) => {
-  boardBoxes[value].classList.add('snake')
-})
-footer.style.visibility = 'hidden'
+
 // Do I need a snake head and snake body of different values, different arrays so I can write functions that show where the snake goes and where to remove value
 //or in response to keypresses, the computer will know to start changing c or r values
 // start game button
 // play again button
 // head of the snake: to allow for listening to arrow buttons
 
+showScore.innerText = score
+currentSnake.forEach((value) => {
+  boardBoxes[value].classList.add('snake')
+})
+boardBoxes[applePosition].classList.add('apple')
+footer.style.visibility = 'hidden'
+
 /*----- event listeners -----*/
-// playAgain.addEventListener('click', init)
+playAgain.addEventListener('click', restart)
 left.addEventListener('click', handleLeft)
 right.addEventListener('click', handleRight)
 up.addEventListener('click', handleUp)
@@ -57,6 +63,29 @@ keyboard event listeners to direct snake: only L, R, up, down buttons, return ou
 // for the snake direction, maybe it is set bsed on the alignment of the first two values
 // timed function (setInterval(movesnakefxn), 500ms) to move the snake every interval, i need a compass or direction setter the snaker is facing and that compass will direct the snake, clearInterval when game over
 // moving the snake every half a second, value in front is changed from 0 to 1 and in back from 0 to 1
+
+function restart() {
+  currentSnake.forEach((value) => {
+    boardBoxes[value].classList.remove('snake')
+  })
+  boardBoxes[newApplePositionIndex].classList.remove('apple')
+
+  currentSnake = [13, 12, 11]
+  applePosition = 64
+  score = 0
+  showScore.innerText = score
+  currentSnake.forEach((value) => {
+    boardBoxes[value].classList.add('snake')
+  })
+  boardBoxes[applePosition].classList.add('apple')
+  footer.style.visibility = 'hidden'
+
+  left.addEventListener('click', handleLeft)
+  right.addEventListener('click', handleRight)
+  up.addEventListener('click', handleUp)
+  down.addEventListener('click', handleDown)
+}
+
 const moveSnake = () => {}
 
 function handleRight(evt) {
@@ -128,7 +157,7 @@ function eatApple() {
       boardBoxes[value].classList.remove('apple')
       score = score + 10
       showScore.innerText = score
-      let newApplePositionIndex = Math.floor(Math.random() * 100)
+      newApplePositionIndex = Math.floor(Math.random() * 100)
       boardBoxes[newApplePositionIndex].classList.add('apple')
       currentSnake.push(tail)
       boardBoxes[tail].classList.add('snake')
@@ -181,22 +210,22 @@ function checkGameOver() {
   }
 }
 
-const init = () => {
-  /* board = [
+//const init = () => {
+/* board = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0
   ] */
-  // let snake = [1, 1, 1]
-  gameOver = 1
-  score = 0
-  const moveSnake = () => {
-    // snake = setInterval((c+ or- 1 or r + or - 1), 500)
-  }
-  render()
-}
+// let snake = [1, 1, 1]
+//gameOver = 1
+//score = 0
+//const moveSnake = () => {
+// snake = setInterval((c+ or- 1 or r + or - 1), 500)
+// }
+// render()
+//}
 
 const render = () => {
   renderBoard()
