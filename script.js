@@ -14,13 +14,14 @@ const appleScore = {
 //let board // an array of arrays of 0 or 1
 let gameOver // game over = -1 if game over, 1 if game is on going
 let highScore // updated if score > high score
-let score // updated after every apple eaten
+//let score // updated after every apple eaten
 // snake value of 1 in board array of arrays indicates snake body layout
 let appleLocation // randomized b#
 let direction = 1
 let currentSnake = [13, 12, 11]
+let score = 0
 /*----- cached elements -----*/
-
+let showScore = document.querySelector('span')
 let playAgain = document.querySelector('#restart')
 let left = document.querySelector('#left')
 let right = document.querySelector('#right')
@@ -63,6 +64,7 @@ function handleRight(evt) {
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.add('snake')
   })
+  eatApple()
 }
 function handleUp(evt) {
   let tail = currentSnake.pop()
@@ -72,6 +74,7 @@ function handleUp(evt) {
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.add('snake')
   })
+  eatApple()
 }
 function handleDown(evt) {
   let tail = currentSnake.pop()
@@ -81,6 +84,7 @@ function handleDown(evt) {
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.add('snake')
   })
+  eatApple()
 }
 
 function handleLeft(evt) {
@@ -108,6 +112,19 @@ function handleLeft(evt) {
     // direction = 10
     //down
   } else return */
+  eatApple()
+}
+
+function eatApple() {
+  currentSnake.forEach((value) => {
+    if (boardBoxes[value].classList.contains('apple')) {
+      boardBoxes[value].classList.remove('apple')
+      score = score + 10
+      showScore.innerText = score
+      let newApplePositionIndex = Math.floor(Math.random() * 100)
+      boardBoxes[newApplePositionIndex].classList.add('apple')
+    } else return
+  })
 }
 
 const init = () => {
