@@ -3,8 +3,6 @@
 /*----- state variables -----*/
 
 let gameOver = false
-let highScore
-let appleLocation
 let direction = 1
 let currentSnake = [13, 12, 11]
 let applePosition = 64
@@ -12,7 +10,7 @@ let score = 0
 let tail
 let newHead
 let appleIndex
-let newApplePositionIndex
+let newApplePositionIndex = 0
 /*----- cached elements -----*/
 let showScore = document.querySelector('span')
 let playAgain = document.querySelector('#restart')
@@ -44,10 +42,13 @@ function restart() {
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.remove('snake')
   })
-  boardBoxes[newApplePositionIndex].classList.remove('apple')
-
+  if (boardBoxes[newApplePositionIndex].classList.contains('apple')) {
+    boardBoxes[newApplePositionIndex].classList.remove('apple')
+  }
   currentSnake = [13, 12, 11]
   applePosition = 64
+  direction = 1
+
   score = 0
   showScore.innerText = score
   currentSnake.forEach((value) => {
@@ -60,10 +61,48 @@ function restart() {
   right.addEventListener('click', handleRight)
   up.addEventListener('click', handleUp)
   down.addEventListener('click', handleDown)
+
+  interval = setInterval(moveSnake, 500)
 }
 
-const moveSnake = () => {}
+let interval = setInterval(moveSnake, 500)
+function moveSnake() {
+  tail = currentSnake.pop()
+  boardBoxes[tail].classList.remove('snake')
+  newHead = currentSnake[0] + direction
+  currentSnake.unshift(newHead)
+  checkGameOver()
+  currentSnake.forEach((value) => {
+    boardBoxes[value].classList.add('snake')
+  })
+  eatApple()
+}
+function handleLeft() {
+  if (direction === 1 || direction === -1) {
+    return
+  }
+  return (direction = -1)
+}
+function handleRight() {
+  if (direction === 1 || direction === -1) {
+    return
+  }
+  return (direction = 1)
+}
+function handleUp() {
+  if (direction === 10 || direction === -10) {
+    return
+  }
+  return (direction = -10)
+}
+function handleDown() {
+  if (direction === 10 || direction === -10) {
+    return
+  }
+  return (direction = 10)
+}
 
+/*
 function handleRight(evt) {
   tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
@@ -109,7 +148,7 @@ function handleLeft(evt) {
   })
   eatApple()
 }
-
+*/
 function eatApple() {
   currentSnake.forEach((value) => {
     if (boardBoxes[value].classList.contains('apple')) {
@@ -174,8 +213,10 @@ function checkGameOver() {
     currentSnake.includes(80)
   ) {
     footer.style.visibility = 'visible'
+    return clearInterval(interval)
   } else if (boardBoxes[newHead].classList.contains('snake')) {
     footer.style.visibility = 'visible'
+    return clearInterval(interval)
   } else {
     return
   }
