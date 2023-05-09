@@ -1,7 +1,3 @@
-/*----- constants -----*/
-
-/*----- state variables -----*/
-
 let gameOver = false
 let direction = 1
 let currentSnake = [13, 12, 11]
@@ -11,7 +7,7 @@ let tail
 let newHead
 let appleIndex
 let newApplePositionIndex = 0
-/*----- cached elements -----*/
+
 let showScore = document.querySelector('span')
 let playAgain = document.querySelector('#restart')
 let footer = document.querySelector('footer')
@@ -29,14 +25,11 @@ currentSnake.forEach((value) => {
 boardBoxes[applePosition].classList.add('apple')
 footer.style.visibility = 'hidden'
 
-/*----- event listeners -----*/
 playAgain.addEventListener('click', restart)
 left.addEventListener('click', handleLeft)
 right.addEventListener('click', handleRight)
 up.addEventListener('click', handleUp)
 down.addEventListener('click', handleDown)
-
-/*----- functions -----*/
 
 function restart() {
   currentSnake.forEach((value) => {
@@ -102,53 +95,6 @@ function handleDown() {
   return (direction = 10)
 }
 
-/*
-function handleRight(evt) {
-  tail = currentSnake.pop()
-  boardBoxes[tail].classList.remove('snake')
-  newHead = currentSnake[0] + 1
-  currentSnake.unshift(newHead)
-  checkGameOver()
-  currentSnake.forEach((value) => {
-    boardBoxes[value].classList.add('snake')
-  })
-  eatApple()
-}
-function handleUp(evt) {
-  tail = currentSnake.pop()
-  boardBoxes[tail].classList.remove('snake')
-  newHead = currentSnake[0] - 10
-  currentSnake.unshift(newHead)
-  checkGameOver()
-  currentSnake.forEach((value) => {
-    boardBoxes[value].classList.add('snake')
-  })
-  eatApple()
-}
-function handleDown(evt) {
-  tail = currentSnake.pop()
-  boardBoxes[tail].classList.remove('snake')
-  newHead = currentSnake[0] + 10
-  currentSnake.unshift(newHead)
-  checkGameOver()
-  currentSnake.forEach((value) => {
-    boardBoxes[value].classList.add('snake')
-  })
-  eatApple()
-}
-
-function handleLeft(evt) {
-  tail = currentSnake.pop()
-  boardBoxes[tail].classList.remove('snake')
-  newHead = currentSnake[0] - 1
-  currentSnake.unshift(newHead)
-  checkGameOver()
-  currentSnake.forEach((value) => {
-    boardBoxes[value].classList.add('snake')
-  })
-  eatApple()
-}
-*/
 function eatApple() {
   currentSnake.forEach((value) => {
     if (boardBoxes[value].classList.contains('apple')) {
