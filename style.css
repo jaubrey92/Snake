@@ -1,6 +1,6 @@
 body {
   background-color: #DAE8FC;
-  height: 95vh
+  height: 95vh;
 }
 
 header {
@@ -33,11 +33,11 @@ h1 {
 
 section {
   height: 50vmin;
-  width: 50vmin;
+  width: 100vmin;
   display: grid;
   background-color: black;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   font-family: 'Sigmar', cursive;
 }
 

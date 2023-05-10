@@ -1,6 +1,6 @@
 let gameOver = false
 let direction = 1
-let currentSnake = [13, 12, 11]
+let currentSnake = [23, 22, 21]
 let applePosition = 64
 let score = 0
 let tail
@@ -39,20 +39,20 @@ function handleKeyboard(evt) {
     }
     return (direction = -1)
   } else if (evt.keyCode === 38) {
-    if (direction === 10 || direction === -10) {
+    if (direction === 20 || direction === -20) {
       return
     }
-    return (direction = -10)
+    return (direction = -20)
   } else if (evt.keyCode === 39) {
     if (direction === 1 || direction === -1) {
       return
     }
     return (direction = 1)
   } else if (evt.keyCode === 40) {
-    if (direction === 10 || direction === -10) {
+    if (direction === 20 || direction === -20) {
       return
     }
-    return (direction = 10)
+    return (direction = 20)
   }
 }
 
@@ -63,7 +63,7 @@ function restart() {
   if (boardBoxes[newApplePositionIndex].classList.contains('apple')) {
     boardBoxes[newApplePositionIndex].classList.remove('apple')
   }
-  currentSnake = [13, 12, 11]
+  currentSnake = [23, 22, 21]
   applePosition = 64
   direction = 1
 
@@ -108,16 +108,16 @@ function handleRight() {
   return (direction = 1)
 }
 function handleUp() {
-  if (direction === 10 || direction === -10) {
+  if (direction === 20 || direction === -20) {
     return
   }
-  return (direction = -10)
+  return (direction = -20)
 }
 function handleDown() {
-  if (direction === 10 || direction === -10) {
+  if (direction === 20 || direction === -20) {
     return
   }
-  return (direction = 10)
+  return (direction = 20)
 }
 
 function eatApple() {
@@ -136,7 +136,7 @@ function eatApple() {
 
 function randomApple() {
   do {
-    appleIndex = Math.floor(Math.random() * 100)
+    appleIndex = Math.floor(Math.random() * 200)
   } while (
     boardBoxes[appleIndex].classList.contains('lose') ||
     boardBoxes[appleIndex].classList.contains('lose')
@@ -146,16 +146,6 @@ function randomApple() {
 
 function checkGameOver() {
   if (
-    currentSnake.includes(90) ||
-    currentSnake.includes(91) ||
-    currentSnake.includes(92) ||
-    currentSnake.includes(93) ||
-    currentSnake.includes(94) ||
-    currentSnake.includes(95) ||
-    currentSnake.includes(96) ||
-    currentSnake.includes(97) ||
-    currentSnake.includes(98) ||
-    currentSnake.includes(99) ||
     currentSnake.includes(0) ||
     currentSnake.includes(1) ||
     currentSnake.includes(2) ||
@@ -166,22 +156,52 @@ function checkGameOver() {
     currentSnake.includes(7) ||
     currentSnake.includes(8) ||
     currentSnake.includes(9) ||
-    currentSnake.includes(19) ||
-    currentSnake.includes(29) ||
-    currentSnake.includes(39) ||
-    currentSnake.includes(49) ||
-    currentSnake.includes(59) ||
-    currentSnake.includes(69) ||
-    currentSnake.includes(79) ||
-    currentSnake.includes(89) ||
     currentSnake.includes(10) ||
+    currentSnake.includes(11) ||
+    currentSnake.includes(12) ||
+    currentSnake.includes(13) ||
+    currentSnake.includes(14) ||
+    currentSnake.includes(15) ||
+    currentSnake.includes(16) ||
+    currentSnake.includes(17) ||
+    currentSnake.includes(18) ||
+    currentSnake.includes(19) ||
     currentSnake.includes(20) ||
-    currentSnake.includes(30) ||
+    currentSnake.includes(39) ||
     currentSnake.includes(40) ||
-    currentSnake.includes(50) ||
+    currentSnake.includes(59) ||
     currentSnake.includes(60) ||
-    currentSnake.includes(70) ||
-    currentSnake.includes(80)
+    currentSnake.includes(79) ||
+    currentSnake.includes(80) ||
+    currentSnake.includes(99) ||
+    currentSnake.includes(100) ||
+    currentSnake.includes(119) ||
+    currentSnake.includes(120) ||
+    currentSnake.includes(139) ||
+    currentSnake.includes(140) ||
+    currentSnake.includes(159) ||
+    currentSnake.includes(160) ||
+    currentSnake.includes(179) ||
+    currentSnake.includes(180) ||
+    currentSnake.includes(181) ||
+    currentSnake.includes(182) ||
+    currentSnake.includes(183) ||
+    currentSnake.includes(184) ||
+    currentSnake.includes(185) ||
+    currentSnake.includes(186) ||
+    currentSnake.includes(187) ||
+    currentSnake.includes(188) ||
+    currentSnake.includes(189) ||
+    currentSnake.includes(190) ||
+    currentSnake.includes(191) ||
+    currentSnake.includes(192) ||
+    currentSnake.includes(193) ||
+    currentSnake.includes(194) ||
+    currentSnake.includes(195) ||
+    currentSnake.includes(196) ||
+    currentSnake.includes(197) ||
+    currentSnake.includes(198) ||
+    currentSnake.includes(199)
   ) {
     footer.style.visibility = 'visible'
     return clearInterval(interval)
