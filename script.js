@@ -80,10 +80,10 @@ function restart() {
   up.addEventListener('click', handleUp)
   down.addEventListener('click', handleDown)
 
-  interval = setInterval(moveSnake, 500)
+  interval = setInterval(moveSnake, 333)
 }
 
-let interval = setInterval(moveSnake, 500)
+let interval = setInterval(moveSnake, 333)
 function moveSnake() {
   tail = currentSnake.pop()
   boardBoxes[tail].classList.remove('snake')
