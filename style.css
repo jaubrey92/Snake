@@ -1,6 +1,6 @@
 body {
   background-color: #DAE8FC;
-  height: 100vh
+  height: 95vh
 }
 
 header {
@@ -32,8 +32,8 @@ h1 {
 
 
 section {
-  height: 70vmin;
-  width: 70vmin;
+  height: 50vmin;
+  width: 50vmin;
   display: grid;
   background-color: black;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
