@@ -1,4 +1,3 @@
-let gameOver = false
 let direction = 1
 let currentSnake = [23, 22, 21]
 let applePosition = 64
@@ -18,21 +17,7 @@ let down = document.querySelector('#down')
 let apple = document.querySelector('.apple')
 let boardBoxes = [...document.querySelectorAll('section > div')]
 
-showScore.innerText = score
-currentSnake.forEach((value) => {
-  boardBoxes[value].classList.add('snake')
-})
-boardBoxes[applePosition].classList.add('apple')
-footer.style.visibility = 'hidden'
-
-playAgain.addEventListener('click', restart)
-left.addEventListener('click', handleLeft)
-right.addEventListener('click', handleRight)
-up.addEventListener('click', handleUp)
-down.addEventListener('click', handleDown)
-document.addEventListener('keydown', handleKeyboard)
-
-function handleKeyboard(evt) {
+const handleKeyboard = (evt) => {
   if (evt.keyCode === 37) {
     if (direction === 1 || direction === -1) {
       return
@@ -56,7 +41,7 @@ function handleKeyboard(evt) {
   }
 }
 
-function restart() {
+const restart = () => {
   currentSnake.forEach((value) => {
     boardBoxes[value].classList.remove('snake')
   })
@@ -83,44 +68,42 @@ function restart() {
   interval = setInterval(moveSnake, 333)
 }
 
-let interval = setInterval(moveSnake, 333)
-function moveSnake() {
-  tail = currentSnake.pop()
-  boardBoxes[tail].classList.remove('snake')
-  newHead = currentSnake[0] + direction
-  currentSnake.unshift(newHead)
-  checkGameOver()
-  currentSnake.forEach((value) => {
-    boardBoxes[value].classList.add('snake')
-  })
-  eatApple()
-}
-function handleLeft() {
+const handleLeft = () => {
   if (direction === 1 || direction === -1) {
     return
   }
   return (direction = -1)
 }
-function handleRight() {
+const handleRight = () => {
   if (direction === 1 || direction === -1) {
     return
   }
   return (direction = 1)
 }
-function handleUp() {
+const handleUp = () => {
   if (direction === 20 || direction === -20) {
     return
   }
   return (direction = -20)
 }
-function handleDown() {
+const handleDown = () => {
   if (direction === 20 || direction === -20) {
     return
   }
   return (direction = 20)
 }
 
-function eatApple() {
+const randomApple = () => {
+  do {
+    appleIndex = Math.floor(Math.random() * 200)
+  } while (
+    boardBoxes[appleIndex].classList.contains('lose') ||
+    boardBoxes[appleIndex].classList.contains('lose')
+  )
+  return appleIndex
+}
+
+const eatApple = () => {
   currentSnake.forEach((value) => {
     if (boardBoxes[value].classList.contains('apple')) {
       boardBoxes[value].classList.remove('apple')
@@ -134,17 +117,7 @@ function eatApple() {
   })
 }
 
-function randomApple() {
-  do {
-    appleIndex = Math.floor(Math.random() * 200)
-  } while (
-    boardBoxes[appleIndex].classList.contains('lose') ||
-    boardBoxes[appleIndex].classList.contains('lose')
-  )
-  return appleIndex
-}
-
-function checkGameOver() {
+const checkGameOver = () => {
   if (
     currentSnake.includes(0) ||
     currentSnake.includes(1) ||
@@ -212,5 +185,32 @@ function checkGameOver() {
     return
   }
 }
+
+const moveSnake = () => {
+  tail = currentSnake.pop()
+  boardBoxes[tail].classList.remove('snake')
+  newHead = currentSnake[0] + direction
+  currentSnake.unshift(newHead)
+  checkGameOver()
+  currentSnake.forEach((value) => {
+    boardBoxes[value].classList.add('snake')
+  })
+  eatApple()
+}
+
+showScore.innerText = score
+currentSnake.forEach((value) => {
+  boardBoxes[value].classList.add('snake')
+})
+boardBoxes[applePosition].classList.add('apple')
+footer.style.visibility = 'hidden'
+let interval = setInterval(moveSnake, 333)
+
+playAgain.addEventListener('click', restart)
+left.addEventListener('click', handleLeft)
+right.addEventListener('click', handleRight)
+up.addEventListener('click', handleUp)
+down.addEventListener('click', handleDown)
+document.addEventListener('keydown', handleKeyboard)
 
 //credits: CSS flex and grid guides, connect four HW
