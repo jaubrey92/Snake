@@ -30,6 +30,31 @@ left.addEventListener('click', handleLeft)
 right.addEventListener('click', handleRight)
 up.addEventListener('click', handleUp)
 down.addEventListener('click', handleDown)
+document.addEventListener('keydown', handleKeyboard)
+
+function handleKeyboard(evt) {
+  if (evt.keyCode === 37) {
+    if (direction === 1 || direction === -1) {
+      return
+    }
+    return (direction = -1)
+  } else if (evt.keyCode === 38) {
+    if (direction === 10 || direction === -10) {
+      return
+    }
+    return (direction = -10)
+  } else if (evt.keyCode === 39) {
+    if (direction === 1 || direction === -1) {
+      return
+    }
+    return (direction = 1)
+  } else if (evt.keyCode === 40) {
+    if (direction === 10 || direction === -10) {
+      return
+    }
+    return (direction = 10)
+  }
+}
 
 function restart() {
   currentSnake.forEach((value) => {
