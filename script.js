@@ -2,12 +2,14 @@ let direction = 1
 let currentSnake = [23, 22, 21]
 let applePosition = 64
 let score = 0
+let highscore = 0
 let tail
 let newHead
 let appleIndex
 let newApplePositionIndex = 0
 
-let showScore = document.querySelector('span')
+let showScore = document.querySelector('#total')
+let showHighScore = document.querySelector('#history')
 let playAgain = document.querySelector('#restart')
 let footer = document.querySelector('footer')
 let left = document.querySelector('#left')
@@ -115,6 +117,10 @@ const eatApple = () => {
       boardBoxes[tail].classList.add('snake')
     } else return
   })
+  if (score > highscore) {
+    return (highscore = score)
+  }
+  showHighScore.innerText = highscore
 }
 
 const checkGameOver = () => {
