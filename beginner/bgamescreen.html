@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
+  <title>Snake Practice Game</title>
+  <link rel="stylesheet" type="text/css" href="bstyle.css" />
+  <script defer src="bscript.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Snake</h1>
+    <h2 id="score">Score: <span id="total">0</span></h2>
+    <h2 id="highscore">High Score: <span id="history">0</span></h2>
+  </header>
+  <main>
+  <section id="gameboard">
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+    <div class="lose"></div>
+
+  </section>
+  <aside>
+    <button class="movement" id="up">Up</button>
+    <button class="movement" id="left">Left</button>
+    <button class="movement" id="right">Right</button>
+    <button class="movement" id="down">Down</button>
+  </aside>
+</main>
+<footer>
+  <p>Game Over!</p>
+  <button id="restart">Play again!</button>
+</footer>
+</body>
+</html>

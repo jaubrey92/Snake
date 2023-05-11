@@ -1,0 +1,96 @@
+body {
+  background-color: #DAE8FC;
+  height: 95vh
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-family: 'Sigmar', cursive;
+}
+
+h1 {
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
+  justify-self: center;
+  font-size: 8vmin;
+  margin: 0;
+}
+
+ #score {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  justify-self: center;
+ }
+
+ #highscore {
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 1;
+  justify-self: center;
+ }
+
+
+section {
+  height: 50vmin;
+  width: 100vmin;
+  display: grid;
+  background-color: black;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  font-family: 'Sigmar', cursive;
+}
+
+section > div {
+  background-color: black;
+}
+
+.snake {
+  background-color: #32CD32;
+}
+
+.apple {
+  background-color: red;
+  border-radius: 50%;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+#restart {
+  height: 10vmin;
+  width: 20vmin;
+  border-radius: 50%;
+  font-family: 'Sigmar', cursive;
+}
+
+main {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.movement {
+  height: 5vmin;
+  width: 10vmin;
+  border-radius: 50%;
+  margin: 1vmin;
+  font-family: 'Sigmar', cursive;
+
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+p {
+  font-family: 'Sigmar', cursive;
+  font-size: 5vmin;
+}
+
+.lose {
+  background-color: #DAE8FC;
+}

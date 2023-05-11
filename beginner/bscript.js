@@ -67,7 +67,7 @@ const restart = () => {
   up.addEventListener('click', handleUp)
   down.addEventListener('click', handleDown)
 
-  interval = setInterval(moveSnake, 333)
+  interval = setInterval(moveSnake, 667)
 }
 
 const handleLeft = () => {
@@ -100,7 +100,7 @@ const randomApple = () => {
     appleIndex = Math.floor(Math.random() * 200)
   } while (
     boardBoxes[appleIndex].classList.contains('lose') ||
-    boardBoxes[appleIndex].classList.contains('lose')
+    boardBoxes[appleIndex].classList.contains('snake')
   )
   return appleIndex
 }
@@ -210,7 +210,7 @@ currentSnake.forEach((value) => {
 })
 boardBoxes[applePosition].classList.add('apple')
 footer.style.visibility = 'hidden'
-let interval = setInterval(moveSnake, 333)
+let interval = setInterval(moveSnake, 667)
 
 playAgain.addEventListener('click', restart)
 left.addEventListener('click', handleLeft)

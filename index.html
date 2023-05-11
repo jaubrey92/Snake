@@ -12,7 +12,7 @@
     body {
       background-color: #DAE8FC;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr;
       height: 100vh;
     }
@@ -20,38 +20,66 @@
     p {
       font-family: 'Sigmar', cursive;
       font-size: 5vmin;
-      grid-column: 2 / span 2;
+      grid-column: 2 / span 5;
       grid-row: 2 / span 1;
       justify-self: center;
     }
 
     button, a {
       height: 10vmin;
-      width: 20vmin;
+      width: 25vmin;
       border-radius: 50%;
       font-family: 'Sigmar', cursive;
-      font-size: 3vmin;
-      grid-column: 2 / span 2;
+      font-size: 2.5vmin;
+      grid-column: 2 / span 4;
+      grid-row: 4 / span 5;
+    }
+
+    .beg {
+      grid-column: 2 / span 1;
       grid-row: 3 / span 1;
-      justify-self: center;
+    }
+
+    .int {
+      grid-column: 4 / span 1;
+      grid-row: 3 / span 1;
+    }
+
+    .exp {
+      grid-column: 6 / span 1;
+      grid-row: 3 / span 1;
     }
 
     #snake {
       border-radius: 50%;
-      grid-column: 4 / span 1;
+      grid-column: 2 / span 1;
       grid-row: 1 / span 1;
+      justify-self: center;
     }
 
     #apple {
       grid-column: 1 / span 1;
       grid-row: 1 / span 1;
+      justify-self: center;
+    }
+
+    div {
+      grid-column: 1 / span 6;
+      grid-row: 1 / span 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
     }
   </style>
 </head>
 <body>
   <p>Welcome! Start a new game below.</p>
-  <a href="gamescreen.html"><button>Start</button></a>
-  <img id="apple" src="https://ouch-cdn2.icons8.com/Fwp0EmhqVRnAyVQG5QLC2njTbMzqEKvAi1G0xOgqrBg/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMzM1/L2FmMWIyMWExLWQz/NzctNGZmNi1iYjc4/LTAxNTdjYzAwNTE1/Yy5wbmc.png">
-  <img id="snake" src="https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/11/5a/48/115a4844-7efd-fe0a-654a-9726ccd23a8b/source/256x256bb.jpg">
+  <a class="beg" href="./beginner/bgamescreen.html"><button class="beg" >Beginner</button></a>
+  <a class="int" href="./intermediate/gamescreen.html"><button class="int" >Intermediate</button></a>
+  <a class="exp" href="./expert/egamescreen.html"><button class="exp" >Expert</button></a>
+  <div>
+    <img id="apple" src="https://ouch-cdn2.icons8.com/Fwp0EmhqVRnAyVQG5QLC2njTbMzqEKvAi1G0xOgqrBg/rs:fit:256:256/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMzM1/L2FmMWIyMWExLWQz/NzctNGZmNi1iYjc4/LTAxNTdjYzAwNTE1/Yy5wbmc.png">
+    <img id="snake" src="https://is5-ssl.mzstatic.com/image/thumb/Purple114/v4/11/5a/48/115a4844-7efd-fe0a-654a-9726ccd23a8b/source/256x256bb.jpg">
+  </div>
 </body>
 </html>
