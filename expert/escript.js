@@ -226,5 +226,3 @@ right.addEventListener('click', handleRight)
 up.addEventListener('click', handleUp)
 down.addEventListener('click', handleDown)
 document.addEventListener('keydown', handleKeyboard)
-
-//credits: CSS flex and grid guides, connect four HW
