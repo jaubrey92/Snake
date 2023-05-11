@@ -1,6 +1,6 @@
 body {
   background-color: #DAE8FC;
-  height: 95vh
+  height: 95vh;
 }
 
 header {
@@ -18,17 +18,17 @@ h1 {
   margin: 0;
 }
 
- #score {
+#score {
   grid-column: 1 / span 1;
   grid-row: 2 / span 1;
   justify-self: center;
- }
+}
 
- #highscore {
+#highscore {
   grid-column: 3 / span 1;
   grid-row: 2 / span 1;
   justify-self: center;
- }
+}
 
 
 section {
@@ -36,7 +36,7 @@ section {
   width: 100vmin;
   display: grid;
   background-color: black;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   font-family: 'Sigmar', cursive;
 }
@@ -77,7 +77,6 @@ main {
   border-radius: 50%;
   margin: 1vmin;
   font-family: 'Sigmar', cursive;
-
 }
 
 aside {
