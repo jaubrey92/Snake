@@ -4,7 +4,7 @@
 
 ### By: James Aubrey
 
-#### [GitHub](https://github.com/jaubrey92) | [Wireframe](https://app.diagrams.net/#G1Og5w7QU7AOiOYfSkWRHPuA9Mij7FfB8j)
+#### [GitHub](https://github.com/jaubrey92) | [Wireframe](https://app.diagrams.net/#G1Og5w7QU7AOiOYfSkWRHPuA9Mij7FfB8j) | [Trello](https://trello.com/b/avknIshM/snake)
 
 ---
 
@@ -24,6 +24,7 @@
 - Markdown
 - VS Code
 - GitHub
+- Surge
 
 ---
 
@@ -35,6 +36,17 @@
 - [x] Wireframe
 - [x] Pseudocode
 - [x] Repository
+- [x] Trello
+- [x] HTML
+- [x] CSS
+- [x] Javascript Variables
+- [x] DOM Variables
+- [x] JS Functions to move snake
+- [x] JS Functions to eat apple
+- [x] JS Functions to end game
+- [x] Score and High Score trackers
+- [x] Different Difficulty Levels
+- [x] Deploy
 
 ---
 
@@ -48,8 +60,16 @@
 
 ## **_Credits_**
 
-#### Example Game: [Snake](https://playsnake.org/)
+#### Example Snake Game: [Snake](https://playsnake.org/)
 
 #### Markdown Cheatsheet: [GitHub](https://github.com/jaubrey92/u1_lab_markdown?organization=jaubrey92&organization=jaubrey92)
 
-#### Pseudocode Example: [Connect Four](https://github.com/SEI-R-4-24/u1_lesson_connect_four)
+#### How to Create a Game: [Connect Four](https://github.com/SEI-R-4-24/u1_lesson_connect_four)
+
+#### CSS Flexbox Guide: [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+
+#### CSS Grid Guide: [Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+
+#### Using setInterval(): [setInterval](https://www.freecodecamp.org/news/javascript-timing-events-settimeout-and-setinterval/)
+
+#### Do...While Loop: [Do...While](https://www.freecodecamp.org/news/javascript-loops-explained-for-loop-for/)
